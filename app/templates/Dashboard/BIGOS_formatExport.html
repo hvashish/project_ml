@@ -1,0 +1,97 @@
+{% block links%}
+<link href="/static/css/nas_dashboard.css?u={{ last_updated_static }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="card m-3">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0 div-inline">BIGOS Data Format</h5>
+        </div>
+        <div class="card-body">
+    <form method="POST" action="{{ url_for('BIGOS_DataFormat') }}" enctype=multipart/form-data class="form-upload">
+        <table class="table" width="50%" cellspacing="0" cellpadding="0">
+            <tr>
+                <th align="left">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                          Import GSM
+                          <span class="btn btn-primary btn-file">
+                            {{ form.gsmData() }}
+                          </span>
+                         </span>
+
+                    </div>
+                </th>
+                <td>
+                    <button type="submit" name="action" class="btn btn-default btn-sm m-0 p-0" form="download-form" value="Seattle_GSM_ALL_CELLPARAM_2211124 .csv">
+                        <i class="fa fa-download font-weight-bold">GSM Sample</i></button>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th align="left">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                          Import UMTS
+                          <span class="btn btn-primary btn-file">
+                            {{ form.umtsData() }}
+                          </span>
+
+                          </span>
+
+                    </div>
+                </th>
+                <td>
+                    <button type="submit" name="action" class="btn btn-default btn-sm m-0 p-0" form="download-form" value="Seattle_UMTS_ALL_CELLPARAM_2211124 .csv">
+                        <i class="fa fa-download font-weight-bold">UMTS Sample</i></button>
+                </td>
+            </tr>
+            <tr>
+                <th align="left">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                          Import LTE
+                          <span class="btn btn-primary btn-file">
+                            {{ form.lteData() }}
+                          </span>
+
+                          </span>
+
+                    </div>
+                </th>
+                <td>
+                    <button type="submit" name="action" class="btn btn-default btn-sm m-0 p-0" form="download-form" value="Seattle_LTE_ALL_CELLPARAM_2211124.csv">
+                        <i class="fa fa-download font-weight-bold">LTE Sample</i></button>
+                </td>
+            </tr>
+            <tr>
+                <th align="left">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                          Import NR
+                          <span class="btn btn-primary btn-file">
+                            {{ form.nrData() }}
+                          </span>
+
+                          </span>
+                        </div>
+                        </th>
+                        <td>
+                        <button type="submit" name="action" class="btn btn-default btn-sm m-0 p-0" form="download-form" value="Seattle_5G_ALL_CELLPARAM_2211124.csv">
+                        <i class="fa fa-download font-weight-bold">NR Sample</i></button>
+                        </td>
+
+            </tr>
+
+
+        </table>
+        <button class="btn btn-primary" id="Import_Data" type="submit" name="action" value="Import_Data">Import_Data</button>
+
+
+    </form>
+</div>
+    </div>
+
+{% endblock %}
